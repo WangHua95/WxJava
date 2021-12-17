@@ -20,7 +20,7 @@ public class WxCpDepart implements Serializable {
   private Long parentId;
   private Long order;
   
-  private String[] department_leader;
+  private String[] departmentLeader;
 
   public static WxCpDepart fromJson(String json) {
     return WxCpGsonBuilder.create().fromJson(json, WxCpDepart.class);
