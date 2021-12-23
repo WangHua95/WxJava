@@ -2,6 +2,8 @@ package me.chanjar.weixin.cp.bean;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.Data;
 import me.chanjar.weixin.cp.util.json.WxCpGsonBuilder;
 
@@ -20,6 +22,7 @@ public class WxCpDepart implements Serializable {
   private Long parentId;
   private Long order;
   
+  //@SerializedName("department_leader")
   private String[] departmentLeader;
 
   public static WxCpDepart fromJson(String json) {

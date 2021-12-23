@@ -31,6 +31,7 @@ public class WxCpDepartGsonAdapter implements JsonSerializer<WxCpDepart>, JsonDe
   private static final String EN_NAME = "name_en";
   private static final String PARENT_ID = "parentid";
   private static final String ORDER = "order";
+  private static final String DEPARTMENT_LEADER= "department_leader";
 
   @Override
   public JsonElement serialize(WxCpDepart group, Type typeOfSrc, JsonSerializationContext context) {
@@ -72,7 +73,14 @@ public class WxCpDepartGsonAdapter implements JsonSerializer<WxCpDepart>, JsonDe
     }
     if (departJson.get(PARENT_ID) != null && !departJson.get(PARENT_ID).isJsonNull()) {
       depart.setParentId(GsonHelper.getAsLong(departJson.get(PARENT_ID)));
+    } 
+    
+    
+    if (departJson.get(DEPARTMENT_LEADER) != null && !departJson.get(DEPARTMENT_LEADER).isJsonNull()) {
+      depart.setDepartmentLeader(GsonHelper.getStringArray(departJson, DEPARTMENT_LEADER));
     }
+     
+     
     return depart;
   }
 
